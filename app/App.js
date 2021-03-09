@@ -45,7 +45,7 @@ export default class App extends Component{
                     <h3 className='text-light text-center'>Real T Chat</h3>
                 </header>
                 <section className='mx-auto mt-3 card col-sm-7 col-lg-4' style={{
-                    height: '40vw'
+                    height: '80vh'
                 }}>
                     <ul
                         className='list-group py-2 border-bottom-0'
