@@ -4,13 +4,8 @@ const app = express();
 
 const socket = require('socket.io');
 
-const webpack = require('webpack');
-const webpackMidd = require('webpack-dev-middleware');
-const config=(require('../webpack.config'));
-
 app.set('port', process.env.PORT || 3000);
 
-app.use(webpackMidd(webpack(config)));
 app.use(express.static(path.join(__dirname,'public')));
 
 //DEFINE LA CONSTANTE CUANDO ESTA INICIALIZADO!!
@@ -22,9 +17,7 @@ const io= socket(server)
 
 io.on("connection", 
     (socket) => { 
-        console.log("New client connected", socket.id)
         socket.on('message', (body)=>{
-            console.log(body);
             socket.broadcast.emit('message', {
                 body,
                 from: socket.id
